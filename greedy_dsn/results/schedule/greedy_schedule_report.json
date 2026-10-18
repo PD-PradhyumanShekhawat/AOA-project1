@@ -1,0 +1,9 @@
+{
+  "input_candidate_count": 874,
+  "scheduled_count": 119,
+  "weeks_scheduled_independently": 5,
+  "interval_definition": "activity_start_epoch to activity_end_epoch (setup + transmission + teardown)",
+  "objective": "maximum number of non-overlapping fixed candidate activity intervals",
+  "complexity": "O(n log n) time for sorting plus O(n) scan",
+  "scope_warning": "Optimal only for the fixed intervals supplied. Audit v2 selected one earliest feasible opportunity per request, so this is not globally optimal over all possible visibility periods and does not solve full multi-resource SatNet scheduling."
+}

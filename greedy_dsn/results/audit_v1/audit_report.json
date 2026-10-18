@@ -1,0 +1,18 @@
+{
+  "audit_type": "restricted_single_antenna_interval_candidate_data_audit",
+  "source_problems_file": "/Users/pd/Sem-1/AOA/uf_cot5405_nasa_audit/problems.json",
+  "source_maintenance_file": "/Users/pd/Sem-1/AOA/uf_cot5405_nasa_audit/maintenance.csv",
+  "weeks_processed": 5,
+  "total_requests": 1452,
+  "total_candidates": 0,
+  "retained_percent": 0.0,
+  "interpretation": "These are earliest feasible fixed-duration candidates under the stated filter, not a schedule and not a solution to the full SatNet problem. Review the restrictions and candidate counts before accepting the project model.",
+  "filter": [
+    "exactly one resource option, containing exactly one antenna",
+    "exactly one visibility period for that antenna",
+    "duration equals duration_min",
+    "communication interval fits within the request window and TRX ON/OFF window",
+    "complete activity including setup and teardown does not overlap antenna maintenance"
+  ],
+  "important_modeling_note": "The audit models setup/teardown as part of antenna occupancy, while only the communication interval must fit within the TRX ON/OFF visibility period. It uses the earliest feasible transmission start. The source benchmark's full objective is not optimized by this audit."
+}

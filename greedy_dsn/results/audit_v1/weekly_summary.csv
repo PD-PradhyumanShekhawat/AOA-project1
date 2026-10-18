@@ -1,0 +1,6 @@
+week_key,requests_total,candidates_retained,retained_percent,rejected_total,maintenance_adjusted_candidates,distinct_antennas_in_candidates,reject__not_exactly_one_resource_option,reject__not_exactly_one_visibility_period,reject__resource_option_not_single_antenna
+W10_2018,257,0,0.0,257,0,0,256,1,
+W20_2018,294,0,0.0,294,0,0,293,1,
+W30_2018,293,0,0.0,293,0,0,290,2,1
+W40_2018,333,0,0.0,333,0,0,330,3,
+W50_2018,275,0,0.0,275,0,0,272,3,

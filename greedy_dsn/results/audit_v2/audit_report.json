@@ -1,0 +1,14 @@
+{
+  "antenna": "DSS-34",
+  "requests_total": 1452,
+  "candidates_retained": 874,
+  "retained_percent": 60.193,
+  "warning": "Audit only, not a schedule. Candidates may conflict. Requested durations may differ; earliest-finish-time maximizes count only when selected intervals have equal value, not total communication hours.",
+  "candidate_rule": [
+    "at least one resource option contains only selected antenna",
+    "evaluate all visibility periods for selected antenna",
+    "use full requested duration",
+    "choose earliest feasible opportunity",
+    "include setup/teardown in antenna occupancy and avoid maintenance"
+  ]
+}

@@ -1,0 +1,6 @@
+week_key,requests_total,candidates_retained,retained_percent,distinct_duration_values,min_duration_hours,max_duration_hours,maintenance_shifted,reject__missing_visibility_data_for_selected_antenna,reject__no_full_requested_duration_opportunity_fits_constraints,reject__no_single_antenna_resource_option_for_selected_antenna
+W10_2018,257,150,58.366,12,1.0,8.0,6,18,5,84
+W20_2018,294,190,64.626,15,1.0,8.0,46,29,11,64
+W30_2018,293,182,62.116,16,1.0,10.0,16,18,11,82
+W40_2018,333,198,59.459,16,1.0,8.0,30,20,19,96
+W50_2018,275,154,56.0,15,1.0,8.5,20,19,16,86
