@@ -1,0 +1,24 @@
+{
+  "candidate_count": 10112,
+  "greedy": {
+    "schedule": "greedy",
+    "selected_count": 787,
+    "unique_request_count": 787,
+    "communication_hours": 3970.4,
+    "antenna_conflict_count": 0,
+    "error_count": 0,
+    "errors": []
+  },
+  "milp": {
+    "schedule": "milp",
+    "selected_count": 946,
+    "unique_request_count": 946,
+    "communication_hours": 4473.5,
+    "antenna_conflict_count": 0,
+    "error_count": 0,
+    "errors": []
+  },
+  "reported_greedy_hours": 3970.4,
+  "reported_milp_hours": 4473.5,
+  "scope_warning": "This validates internal schedule consistency only. It does not independently establish visibility, maintenance, setup/teardown, resource-option, or full SatNet benchmark feasibility."
+}

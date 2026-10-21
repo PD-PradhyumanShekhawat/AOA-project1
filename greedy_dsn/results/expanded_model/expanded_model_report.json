@@ -1,0 +1,20 @@
+{
+  "requests_in_dataset": 1452,
+  "expanded_candidate_count": 10112,
+  "greedy_selected_count": 787,
+  "greedy_communication_hours": 3970.4,
+  "milp_selected_count": 946,
+  "milp_communication_hours": 4473.5,
+  "milp_status": "optimal: Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "rejected_request_reasons": {
+    "missing_resource_visibility": 3332,
+    "no_full_duration_candidate": 72
+  },
+  "scope": "Fixed earliest-start candidates across listed resource options and visibility-period combinations; full requested durations only. Not the full SatNet optimization problem.",
+  "limitations": [
+    "Start times are fixed to earliest feasible candidate times.",
+    "Shortened durations down to duration_min are not modeled.",
+    "The MILP optimum applies only to generated fixed candidates.",
+    "The duration-priority greedy heuristic has no optimality guarantee."
+  ]
+}

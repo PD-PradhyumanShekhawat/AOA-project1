@@ -1,0 +1,29 @@
+{
+  "source_request_count": 1452,
+  "duplicate_source_request_keys": [],
+  "greedy": {
+    "schedule": "greedy",
+    "rows": 787,
+    "requests_found_and_checked": 787,
+    "unique_selected_requests": 787,
+    "resource_options_checked": 787,
+    "per_antenna_visibility_checks": 787,
+    "per_antenna_maintenance_checks": 787,
+    "communication_hours_sum": 3970.4,
+    "error_count": 0,
+    "errors": []
+  },
+  "milp": {
+    "schedule": "milp",
+    "rows": 946,
+    "requests_found_and_checked": 946,
+    "unique_selected_requests": 946,
+    "resource_options_checked": 946,
+    "per_antenna_visibility_checks": 946,
+    "per_antenna_maintenance_checks": 946,
+    "communication_hours_sum": 4473.5,
+    "error_count": 0,
+    "errors": []
+  },
+  "scope_warning": "Passing validates selected rows against checks implemented here and local source files. It does not establish candidate-set completeness or compliance with benchmark rules not represented in these files."
+}
