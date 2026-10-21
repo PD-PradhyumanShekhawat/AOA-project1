@@ -1,0 +1,59 @@
+{
+  "dataset": "Case Western Reserve University Bearing Data Center",
+  "source_url": "https://engineering.case.edu/bearingdatacenter",
+  "input_file": "105.mat",
+  "channel": "X105_DE_time",
+  "sample_rate_hz": 12000.0,
+  "samples_analyzed": 4096,
+  "segment": "first N samples; mean removed for spectrum",
+  "frequency_resolution_hz": 2.9296875,
+  "algorithm": "project radix-2 Cooley-Tukey FFT (src/radix2_fft.py)",
+  "outputs": {
+    "waveform_png": "results/real_data/105_waveform.png",
+    "spectrum_png": "results/real_data/105_spectrum.png",
+    "spectrum_csv": "results/real_data/105_spectrum.csv"
+  },
+  "largest_nonzero_frequency_bins": [
+    {
+      "frequency_hz": 3585.9375,
+      "amplitude": 0.0960342732767597
+    },
+    {
+      "frequency_hz": 2616.2109375,
+      "amplitude": 0.09548536192191767
+    },
+    {
+      "frequency_hz": 2879.8828125,
+      "amplitude": 0.09060785135119075
+    },
+    {
+      "frequency_hz": 2777.34375,
+      "amplitude": 0.07686343463604513
+    },
+    {
+      "frequency_hz": 2455.078125,
+      "amplitude": 0.07521266781353743
+    },
+    {
+      "frequency_hz": 2718.75,
+      "amplitude": 0.06285696124066555
+    },
+    {
+      "frequency_hz": 1324.21875,
+      "amplitude": 0.06104543101630711
+    },
+    {
+      "frequency_hz": 3603.515625,
+      "amplitude": 0.05595851952846194
+    },
+    {
+      "frequency_hz": 3424.8046875,
+      "amplitude": 0.0548293313802496
+    },
+    {
+      "frequency_hz": 1262.6953125,
+      "amplitude": 0.05165673624311291
+    }
+  ],
+  "interpretation_limit": "Spectrum peaks alone do not diagnose bearing condition."
+}
