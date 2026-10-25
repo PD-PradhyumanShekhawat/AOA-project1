@@ -1,0 +1,6 @@
+week_key,candidate_count,greedy_interval_count,greedy_communication_hours,exact_weighted_dp_hours,greedy_to_weighted_optimum_ratio,scope
+W10_2018,150,27,52.5,97.3,0.53956835,fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals
+W20_2018,190,21,33.7,92.6,0.36393089,fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals
+W30_2018,182,24,43.6,100.4,0.43426295,fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals
+W40_2018,198,24,43.6,91.6,0.47598253,fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals
+W50_2018,154,23,60.9,94.3,0.64581124,fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals

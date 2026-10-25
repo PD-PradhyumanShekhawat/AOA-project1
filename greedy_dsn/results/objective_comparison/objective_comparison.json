@@ -1,0 +1,55 @@
+{
+  "candidate_count": 874,
+  "greedy_total_intervals": 119,
+  "greedy_total_communication_hours": 234.3,
+  "weighted_dp_total_communication_hours": 476.2,
+  "greedy_to_weighted_optimum_ratio": 0.49202016,
+  "weekly_results": [
+    {
+      "week_key": "W10_2018",
+      "candidate_count": 150,
+      "greedy_interval_count": 27,
+      "greedy_communication_hours": 52.5,
+      "exact_weighted_dp_hours": 97.3,
+      "greedy_to_weighted_optimum_ratio": 0.53956835,
+      "scope": "fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals"
+    },
+    {
+      "week_key": "W20_2018",
+      "candidate_count": 190,
+      "greedy_interval_count": 21,
+      "greedy_communication_hours": 33.7,
+      "exact_weighted_dp_hours": 92.6,
+      "greedy_to_weighted_optimum_ratio": 0.36393089,
+      "scope": "fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals"
+    },
+    {
+      "week_key": "W30_2018",
+      "candidate_count": 182,
+      "greedy_interval_count": 24,
+      "greedy_communication_hours": 43.6,
+      "exact_weighted_dp_hours": 100.4,
+      "greedy_to_weighted_optimum_ratio": 0.43426295,
+      "scope": "fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals"
+    },
+    {
+      "week_key": "W40_2018",
+      "candidate_count": 198,
+      "greedy_interval_count": 24,
+      "greedy_communication_hours": 43.6,
+      "exact_weighted_dp_hours": 91.6,
+      "greedy_to_weighted_optimum_ratio": 0.47598253,
+      "scope": "fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals"
+    },
+    {
+      "week_key": "W50_2018",
+      "candidate_count": 154,
+      "greedy_interval_count": 23,
+      "greedy_communication_hours": 60.9,
+      "exact_weighted_dp_hours": 94.3,
+      "greedy_to_weighted_optimum_ratio": 0.64581124,
+      "scope": "fixed candidate intervals; one antenna; full requested durations; setup/teardown included in conflict intervals"
+    }
+  ],
+  "interpretation": "The earliest-finish-time rule is optimal for maximum cardinality on fixed intervals, not for maximizing summed durations. Weighted DP is exact only for this fixed single-antenna candidate set; this is not a full SatNet optimum."
+}
