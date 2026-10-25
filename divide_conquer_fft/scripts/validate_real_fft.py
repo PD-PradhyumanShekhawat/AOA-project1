@@ -10,7 +10,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from radix2_fft import fft
 
-data = loadmat(PROJECT_ROOT / "105.mat")
+data = loadmat(PROJECT_ROOT / "data" / "105.mat")
 signal = np.asarray(data["X105_DE_time"]).squeeze()
 
 n = 4096
