@@ -1,5 +1,13 @@
 import random
 from bisect import bisect_right
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+GREEDY_SRC = REPO_ROOT / "greedy_dsn" / "src"
+if str(GREEDY_SRC) not in sys.path:
+    sys.path.insert(0, str(GREEDY_SRC))
+
 from greedy_satnet import greedy_schedule
 
 
@@ -37,7 +45,7 @@ def make_interval(index, start, end):
 
 
 def main():
-    # First, reproduce the reported counterexample.
+    # First, run a deterministic sanity case.
     case = [
         (38, 50), (12, 18), (2, 16), (41, 47), (2, 8),
         (30, 32), (12, 26), (21, 24), (10, 17), (36, 44),
@@ -47,7 +55,7 @@ def main():
 
     greedy_count = len(greedy_schedule(intervals))
     dp_count = dynamic_programming_optimum(intervals)
-    print(f"Counterexample: greedy={greedy_count}, DP={dp_count}")
+    print(f"Deterministic sanity case: greedy={greedy_count}, DP={dp_count}")
 
     if greedy_count != dp_count:
         raise SystemExit("FAIL: greedy and DP disagree on the counterexample.")
