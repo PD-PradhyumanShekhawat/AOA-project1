@@ -14,3 +14,12 @@ venv/
 
 # Temporary files
 *.log
+
+# LaTeX generated files (keep main.tex and main.pdf)
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz
