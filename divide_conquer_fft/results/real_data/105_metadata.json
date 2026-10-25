@@ -1,7 +1,7 @@
 {
   "dataset": "Case Western Reserve University Bearing Data Center",
   "source_url": "https://engineering.case.edu/bearingdatacenter",
-  "input_file": "105.mat",
+  "input_file": "divide_conquer_fft/data/105.mat",
   "channel": "X105_DE_time",
   "sample_rate_hz": 12000.0,
   "samples_analyzed": 4096,
@@ -9,9 +9,9 @@
   "frequency_resolution_hz": 2.9296875,
   "algorithm": "project radix-2 Cooley-Tukey FFT (src/radix2_fft.py)",
   "outputs": {
-    "waveform_png": "results/real_data/105_waveform.png",
-    "spectrum_png": "results/real_data/105_spectrum.png",
-    "spectrum_csv": "results/real_data/105_spectrum.csv"
+    "waveform_png": "/tmp/real_data_recheck/105_waveform.png",
+    "spectrum_png": "/tmp/real_data_recheck/105_spectrum.png",
+    "spectrum_csv": "/tmp/real_data_recheck/105_spectrum.csv"
   },
   "largest_nonzero_frequency_bins": [
     {
@@ -20,7 +20,7 @@
     },
     {
       "frequency_hz": 2616.2109375,
-      "amplitude": 0.09548536192191767
+      "amplitude": 0.09548536192191764
     },
     {
       "frequency_hz": 2879.8828125,
@@ -52,7 +52,7 @@
     },
     {
       "frequency_hz": 1262.6953125,
-      "amplitude": 0.05165673624311291
+      "amplitude": 0.051656736243112907
     }
   ],
   "interpretation_limit": "Spectrum peaks alone do not diagnose bearing condition."
