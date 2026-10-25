@@ -1,17 +1,16 @@
-\documentclass[11pt]{article}
+\documentclass[conference]{IEEEtran}
 
 % ============================================================
 % PACKAGES AND PAGE STYLE
 % ============================================================
 
-\usepackage[a4paper,margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{caption}
 
 \definecolor{UFBlue}{HTML}{0021A5}
 \definecolor{UFOrange}{HTML}{FA4616}
@@ -27,16 +26,8 @@
     pdfauthor={Pradhyuman Singh Shekhawat}
 }
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
-\setlength{\headheight}{15pt}
-
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\textcolor{UFBlue}{COT5405 --- Analysis of Algorithms}}
-\fancyhead[R]{\small\textcolor{DarkGray}{Course Project}}
-\fancyfoot[C]{\small\thepage}
-\renewcommand{\headrulewidth}{0.5pt}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0pt}
 
 \newcommand{\code}[1]{\texttt{\detokenize{#1}}}
 
@@ -47,67 +38,36 @@
     breaklines=true,
     columns=fullflexible,
     keepspaces=true,
-    showstringspaces=false
+    showstringspaces=false,
+    captionpos=t,
+    abovecaptionskip=10pt,
+    belowcaptionskip=10pt
+}
+
+\captionsetup[lstlisting]{
+    position=top,
+    skip=10pt
+}
+
+
+
+% ============================================================
+% IEEE conference title block
+% ============================================================
+
+\title{Greedy Scheduling and Divide-and-Conquer FFT}
+
+\author{
+\IEEEauthorblockN{Pradhyuman Singh Shekhawat}
+\IEEEauthorblockA{
+University of Florida\\
+COT5405 --- Analysis of Algorithms\\
+Fall 2026
+}
 }
 
 \begin{document}
-
-% ============================================================
-% TITLE PAGE
-% ============================================================
-
-\begin{titlepage}
-\thispagestyle{empty}
-\begin{center}
-
-\vspace*{0.35in}
-
-\IfFileExists{ufl-logo.png}{
-    \includegraphics[width=5in]{ufl-logo.png}
-}{
-    {\Large\textcolor{UFBlue}{\textbf{UNIVERSITY OF FLORIDA}}}\\[2mm]
-    {\color{UFOrange}\rule{2.65in}{1.2pt}}
-}
-
-\vspace{0.65in}
-
-{\Large\textcolor{UFBlue}{\textbf{COT5405 --- ANALYSIS OF ALGORITHMS}}}
-
-\vspace{0.18in}
-
-{\Huge\bfseries\textcolor{DarkGray}{Project - 1}}
-
-\vspace{0.10in}
-
-{\LARGE\bfseries\textcolor{UFBlue}{Greedy Scheduling and Divide-and-Conquer FFT}}
-
-\vspace{0.30in}
-
-{\color{UFOrange}\rule{4.6in}{1.5pt}}
-
-\vspace{0.45in}
-
-{\large
-\begin{tabular}{r l}
-\textbf{Student:} & Pradhyuman Singh Shekhawat\\
-\textbf{UFID:} & 55742970\\
-\textbf{Email:} & pr.shekhawat@ufl.edu\\
-\textbf{Term:} & Fall 2026\\
-\textbf{Components:} & Greedy scheduling and radix-2 FFT\\
-\end{tabular}
-}
-
-\vfill
-
-{\small University of Florida\\[2pt]\today}
-
-\end{center}
-\end{titlepage}
-
-\pagenumbering{roman}
-\tableofcontents
-\clearpage
-\pagenumbering{arabic}
+\maketitle
 
 % ============================================================
 \section{Introduction}
@@ -243,10 +203,30 @@ The repository contains runtime benchmark artifacts under
 \code{greedy_dsn/results/runtime/}. The CSV file and plot generated
 by the final benchmark run should be retained with the project.
 
+
+\begin{table}[ht]
+\centering
+\caption{Greedy scheduler median runtime (seven repetitions).}
+\label{tab:greedy-runtime}
+\begin{tabular}{rr}
+\toprule
+Input size $n$ & Median runtime (ms)\\
+\midrule
+100 & 0.037130\\
+250 & 0.110246\\
+500 & 0.278891\\
+1,000 & 0.501851\\
+2,000 & 1.280528\\
+4,000 & 3.389668\\
+8,000 & 6.338986\\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure}[ht]
 \centering
 \IfFileExists{../../greedy_dsn/results/runtime/runtime_median.png}{
-    \includegraphics[width=0.82\textwidth]
+    \includegraphics[width=\columnwidth]
     {../../greedy_dsn/results/runtime/runtime_median.png}
 }{
     \fbox{\parbox{0.82\textwidth}{\centering
@@ -384,14 +364,14 @@ timings.
 \toprule
 Input size $n$ & Median runtime (ms)\\
 \midrule
-256    & 0.5455\\
-512    & 1.1579\\
-1,024  & 2.5629\\
-2,048  & 5.7415\\
-4,096  & 13.2173\\
-8,192  & 24.4893\\
-16,384 & 51.8880\\
-32,768 & 109.8920\\
+256    & 0.551136\\
+512    & 1.375953\\
+1,024  & 2.468382\\
+2,048  & 5.763517\\
+4,096  & 11.238437\\
+8,192  & 25.909256\\
+16,384 & 55.074267\\
+32,768 & 120.434025\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -399,7 +379,7 @@ Input size $n$ & Median runtime (ms)\\
 \begin{figure}[ht]
 \centering
 \IfFileExists{../../divide_conquer_fft/results/fft_runtime_vs_nlogn.png}{
-    \includegraphics[width=0.82\textwidth]
+    \includegraphics[width=\columnwidth]
     {../../divide_conquer_fft/results/fft_runtime_vs_nlogn.png}
 }{
     \fbox{\parbox{0.82\textwidth}{\centering
@@ -441,7 +421,7 @@ specific bearing defect.
 \begin{figure}[ht]
 \centering
 \IfFileExists{../../divide_conquer_fft/results/real_data/105_waveform.png}{
-    \includegraphics[width=0.82\textwidth]
+    \includegraphics[width=\columnwidth]
     {../../divide_conquer_fft/results/real_data/105_waveform.png}
 }{
     \fbox{\parbox{0.82\textwidth}{\centering
@@ -456,7 +436,7 @@ specific bearing defect.
 \begin{figure}[ht]
 \centering
 \IfFileExists{../../divide_conquer_fft/results/real_data/105_spectrum.png}{
-    \includegraphics[width=0.82\textwidth]
+    \includegraphics[width=\columnwidth]
     {../../divide_conquer_fft/results/real_data/105_spectrum.png}
 }{
     \fbox{\parbox{0.82\textwidth}{\centering
@@ -520,60 +500,221 @@ domain-specific analysis and supporting evidence.
 % ============================================================
 \section{Use of AI Tools}
 
-AI assistance was used during project development for algorithm
-discussion, implementation review, test development, debugging, and
-report drafting. The final appendix should document the actual prompts
-and relevant outputs required by the course policy. The following
-table summarizes the main types of assistance and the verification
-work that should be documented.
+Generative AI tools were used during the development of this project to support algorithm design, implementation, debugging, test development, and the revision of the written report. All algorithmic analyses, correctness arguments, experimental results, and conclusions remain the responsibility of the author and were reviewed against the project implementation and test results.
 
-\begin{table}[ht]
-\centering
-\caption{AI-use and verification summary.}
-\small
-\begin{tabular}{p{0.18\textwidth}p{0.34\textwidth}p{0.36\textwidth}}
-\toprule
-Task & AI assistance used & Verification and refinement\\
-\midrule
-Greedy algorithm &
-Discussion of interval scheduling, algorithm design, and correctness
-reasoning. &
-Unit tests, independent dynamic-programming comparison on 1,000
-random small instances, and a schedule overlap check.\\
-\midrule
-FFT algorithm &
-Discussion of radix-2 FFT design, recurrence, correctness, and test
-cases. &
-Seven unit tests, direct-DFT comparisons, and a synthetic-frequency
-check.\\
-\midrule
-Report drafting &
-Organization and refinement of technical explanations and LaTeX
-formatting. &
-Review proofs, citations, code paths, runtime values, plots, and
-real-data claims against the project artifacts.\\
-\bottomrule
-\end{tabular}
-\end{table}
+The project archive available for the final review did not include a complete record of the earlier AI-assisted development sessions. Therefore, the original prompts, responses, and intermediate outputs from those sessions could not be reproduced in full. The available record is documented in \texttt{docs/AI\_USE\_LOG.md}. No attempt has been made to reconstruct missing exchanges or present reconstructed material as an exact transcript.
 
-This summary is not a substitute for the exact prompt/output log if
-the assignment requires it. Exact prompts should be copied from the
-actual conversation history rather than reconstructed and presented
-as verbatim records.
+The verification evidence summarized below is drawn from the retained source code, test results, benchmark outputs, and report-build artifacts. It documents the checks performed on the submitted work but does not replace the complete prompt-and-response record required by the course. Any remaining gaps in that record must be addressed using the original conversation history.
+
+
+\section{AI Tool Use and Prompt Log}
+\label{app:ai-use}
+
+\subsection{Purpose and disclosure method}
+ChatGPT was used as a supporting tool for project planning, algorithm-design discussion,
+implementation assistance, testing strategy, and report preparation. The student remains
+responsible for the correctness of mathematical formulations, proofs, code, citations,
+and experimental claims. AI-generated suggestions were treated as proposals requiring
+review, not as independent evidence.
+
+This log covers the selected project: (i) greedy communication scheduling motivated by
+NASA Deep Space Network (DSN) operations, and (ii) divide-and-conquer analysis of
+bearing-vibration signals using a radix-2 Cooley--Tukey Fast Fourier Transform (FFT).
+Earlier provisional examples, such as generic activity selection or closest-pair geometry,
+are not presented as the final project implementations.
+
+The original project-planning prompt is retained in the project conversation/source text
+dated 2026-10-12. Where exact prompt wording is available, it is quoted below. Where the
+retained record contains only a summary, that limitation is explicitly identified rather
+than presenting reconstructed wording as a verbatim prompt. Historical model-version
+metadata was not preserved for every interaction; this appendix therefore does not assign
+an unverified model version to earlier turns.
+
+\subsection{AI-Assisted Project Development}
+
+\begin{enumerate}
+
+\item \textbf{Project requirements and problem selection.}
+
+The initial planning focused on identifying suitable real-world problems
+for the greedy and divide-and-conquer components and evaluating their
+mathematical and practical suitability.
+
+\begin{itemize}
+    \item \textbf{Prompt:}
+    \begin{quote}
+    ``Act as my algorithm-design tutor, research assistant, project
+    supervisor, and implementation partner. Help me select suitable
+    problems, design and prove algorithms, implement them, conduct
+    experiments, and produce a professional research-style report.
+    I want to work through the project with you step by step. Do not
+    jump directly into writing code or a report.''
+    \end{quote}
+
+    \item \textbf{Outcome:}
+    Candidate problems were compared based on their real-world
+    motivation, mathematical formulation, suitability for the required
+    algorithm, correctness guarantees, data availability, and
+    experimental feasibility.
+
+    \item \textbf{Refinement:}
+    The project was organized into stages covering problem definition,
+    mathematical modeling, algorithm design, correctness proofs,
+    complexity analysis, implementation, testing, benchmarking, and
+    report preparation. The selected models were restricted to problems
+    whose assumptions and algorithmic guarantees could be stated
+    precisely.
+\end{itemize}
+
+\item \textbf{Greedy scheduling model.}
+
+The greedy component was developed around a satellite communication
+scheduling problem inspired by NASA Deep Space Network operations.
+
+\begin{itemize}
+    \item \textbf{Outcome:}
+    The problem was formulated as selecting the maximum number of
+    pairwise non-overlapping intervals from a fixed set of candidate
+    communication opportunities. The earliest-finish-time greedy
+    algorithm was selected for this model.
+
+    \item \textbf{Refinement:}
+    The model was restricted to a single resource and equal-value
+    intervals. It does not claim to solve the complete operational
+    DSN scheduling problem or account for all its operational
+    constraints.
+\end{itemize}
+
+\item \textbf{Greedy implementation and testing.}
+
+\begin{itemize}
+    \item \textbf{Recorded results:}
+    The project progress records report 874 candidate requests and
+    119 selected intervals. They also report ten unit tests and
+    comparisons against a dynamic-programming solution on 1,000
+    randomly generated instances.
+
+    \item \textbf{Verification:}
+    These results should be confirmed against the final source code,
+    test output, and saved experiment files before being presented
+    as final experimental findings.
+\end{itemize}
+
+\item \textbf{Divide-and-conquer problem formulation.}
+
+The second component uses the radix-2 Cooley--Tukey Fast Fourier
+Transform (FFT) to compute the frequency spectrum of sampled
+bearing-vibration signals.
+
+\begin{itemize}
+    \item \textbf{Outcome:}
+    The input was defined as a sequence of \(n=2^k\) samples, and
+    the required output as its discrete Fourier transform:
+    \[
+        X[m]=\sum_{j=0}^{n-1}x[j]e^{-2\pi i jm/n}.
+    \]
+    The algorithm divides the input into even- and odd-indexed
+    subsequences, transforms them recursively, and combines their
+    results.
+
+    \item \textbf{Complexity analysis:}
+    The recurrence
+    \[
+        T(n)=2T(n/2)+\Theta(n)
+    \]
+    gives a time complexity of \(\Theta(n\log n)\).
+
+    \item \textbf{Refinement:}
+    The application was limited to frequency-spectrum computation
+    using bearing-vibration data associated with the Case Western
+    Reserve University (CWRU) Bearing Data Center. The FFT was not
+    treated as a complete bearing-fault diagnosis or classification
+    system.
+\end{itemize}
+
+\item \textbf{FFT implementation and experiments.}
+
+\begin{itemize}
+    \item \textbf{Recorded results:}
+    The project progress records report seven FFT tests, recovery of
+    synthetic signal frequencies at 64, 180, and 230 Hz, and runtime
+    experiments with input sizes ranging from 256 to 32,768 samples,
+    using seven repetitions.
+
+    \item \textbf{Verification:}
+    The reported results should be checked against the final
+    implementation, test output, benchmark data, and generated plots.
+    Synthetic-signal tests and experiments using real bearing
+    measurements should be treated as separate forms of validation.
+\end{itemize}
+
+\item \textbf{Report review and reproducibility.}
+
+The report was reviewed against the course rubric, focusing on
+correctness proofs, complexity analysis, reproducibility, citations,
+and consistency between the report and implementation.
+
+\begin{itemize}
+    \item \textbf{Prompt:}
+    \begin{quote}
+    ``Check the following:
+    \begin{enumerate}
+        \item Correctness proofs: verify that the report contains a valid
+        proof for each algorithm, not just a complexity explanation or
+        test results.
+        \item Reproducibility: make sure the documented commands work
+        from the stated directory without undocumented environment setup.
+        \item Full report-to-code consistency: verify the reported results,
+        tables, figures, citations, and data descriptions against the
+        actual files.
+    \end{enumerate}''
+    \end{quote}
+
+    \item \textbf{Outcome:}
+    The review focused on the greedy exchange argument, the FFT
+    decomposition, test execution, benchmark results, citations, and
+    report structure. The retained project notes also record changes
+    to the standalone greedy verifier, a counterexample test, and the
+    use of the IEEE conference template.
+
+    \item \textbf{Refinement:}
+    The review identified items requiring correction or further
+    checking. Final claims were to be checked against the project
+    files and reproducible results.
+\end{itemize}
+
+\end{enumerate}
+
+\subsection{Verification and Responsibility}
+
+AI assistance supported project planning, explanations, implementation,
+testing, and report review. I am responsible for the final submission.
+The mathematical proofs must match the stated problem formulations,
+experimental results must be reproducible from the included code,
+and claims in the report must be supported by the corresponding
+evidence and citations.
+
+The reported test counts and benchmark results are based on retained
+project records and should be confirmed against the final source code
+and experiment outputs. Any result that cannot be reproduced should
+be corrected or removed.
 
 % ============================================================
-\appendix
+\appendices
 
 \section{Runtime-Validation Code}
 
-The greedy runtime benchmark is maintained in
-\code{greedy_dsn/scripts/benchmark_greedy_runtime.py}, and the FFT
-runtime benchmark is maintained in
-\code{divide_conquer_fft/scripts/benchmark_fft.py}.
+The benchmark programs used to collect the empirical running-time
+measurements are included below. The corresponding CSV files and plots
+are retained in the project directory. These measurements depend on the
+machine and Python environment; the asymptotic bounds follow from the
+analyses in the main text.
 
-The corresponding CSV files and generated plots should be retained
-with the submission. The runtime results in this report should match
-the exact benchmark outputs included in the final project.
+\subsection{Greedy interval-scheduling benchmark}
+\lstinputlisting[language=Python,basicstyle=\ttfamily\tiny,caption={Greedy runtime benchmark source.}]{../../greedy_dsn/scripts/benchmark_greedy_runtime.py}
+
+\subsection{Radix-2 FFT benchmark}
+\lstinputlisting[language=Python,basicstyle=\ttfamily\tiny,caption={FFT benchmark source.}]{../../divide_conquer_fft/scripts/benchmark_fft.py}
 
 \newpage
 
@@ -643,10 +784,11 @@ James W. Cooley and John W. Tukey.
 \newblock \url{https://doi.org/10.1090/S0025-5718-1965-0178586-1}.
 
 \bibitem{nasa-dsn}
-NASA Technical Reports Server.
-\newblock Deep Space Network scheduling research resources.
+N. Dhamani, M. Johnston, and G. Lucena.
+\newblock Scheduling NASA's Deep Space Network: Priorities, Preferences, and Optimization.
+\newblock NASA Technical Reports Server, 2022.
 \newblock Available at:
-\url{https://ntrs.nasa.gov/citations/20230006929}.
+\url{https://ntrs.nasa.gov/citations/20220001560}.
 
 \end{thebibliography}
 
