@@ -14,9 +14,17 @@ def row(track, start, end, hours):
 
 class ObjectiveComparisonTests(unittest.TestCase):
     def test_weighted_dp_beats_cardinality_greedy_on_counterexample(self):
-        intervals = [row("A", 0, 3, 3), row("B", 3, 6, 3), row("C", 0, 6, 6.0)]
-        # Greedy finish-time chooses A and B (2 activities, 6 h); tie ordering can include C only if rule differs.
-        self.assertAlmostEqual(weighted_interval_optimum(intervals), 6.0)
+        intervals = [
+            row("A", 0, 2, 1),
+            row("B", 2, 4, 1),
+            row("C", 0, 4, 5),
+        ]
+        greedy = greedy_schedule(intervals)
+        greedy_hours = sum(float(r["requested_duration_hours"]) for r in greedy)
+
+        self.assertAlmostEqual(greedy_hours, 2.0)
+        self.assertAlmostEqual(weighted_interval_optimum(intervals), 5.0)
+        self.assertLess(greedy_hours, weighted_interval_optimum(intervals))
 
     def test_weighted_dp_uses_duration_weights(self):
         intervals = [row("short1", 0, 2, 1), row("short2", 2, 4, 1), row("long", 0, 4, 4)]
