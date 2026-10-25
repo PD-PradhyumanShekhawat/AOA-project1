@@ -1,11 +1,21 @@
-# AOA report starter
+# Report source and build
 
-`report/main.tex` is a first integrated draft for the greedy scheduling and divide-and-conquer FFT components.
+`report/main.tex` is the IEEE conference-style LaTeX report for Project 1.
 
-## Important before submission
-- Verify the instructor's required ACM/IEEE template; the file uses `acmart` and may need adjustments to match the course's exact template.
-- Build from the repository root so the greedy plot path can resolve. The FFT plot path may need adjusting depending on where you compile.
-- Add the actual greedy runtime table/plots from your final CSV.
-- Check the cited DSN source and replace the placeholder bibliography entry with exact metadata for the source actually used.
-- Complete the AI-use appendix using the exact prompts from your chat history and describe your own verification/refinement accurately.
-- Compile and check the PDF; this draft is not yet a submission-ready final report.
+## Build
+
+Build from this directory so the relative paths to project plots and benchmark source files resolve:
+
+```bash
+latexmk -pdf -interaction=nonstopmode main.tex
+```
+
+The report references source files and figures under `../../greedy_dsn/` and `../../divide_conquer_fft/`.
+
+## Submission checks
+
+- The FFT runtime table is taken from `divide_conquer_fft/results/fft_runtime.csv`.
+- The greedy runtime table is taken from `greedy_dsn/results/runtime/runtime_results.csv`.
+- Runtime validation source code is included in the report appendix using `\\lstinputlisting`.
+- The supplied SatNet inputs are described as project-provided benchmark files; no claim is made that they are raw operational NASA schedules.
+- The report includes a transparent note that the ZIP did not contain the complete historical AI prompt/output export. The exact conversation log required by the course must be attached before submission; it must not be fabricated or reconstructed as if verbatim.
